@@ -1,4 +1,4 @@
-package components
+package resources.components
 
 import Component
 

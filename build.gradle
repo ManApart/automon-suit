@@ -10,10 +10,13 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation 'com.github.Hexworks.zircon:zircon.core:2019.1.2-PREVIEW'
+    implementation 'org.hexworks.zircon:zircon.jvm.swing:2019.1.2-PREVIEW'
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 

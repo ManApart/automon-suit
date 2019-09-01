@@ -1,7 +1,7 @@
-package suits
+package resources.suits
 
 import Suit
-import parts.*
+import resources.parts.*
 
 object Suits {
 

@@ -2,6 +2,8 @@ enum class Element {
     AIR,
     FIRE,
     WATER,
-    EARTH,
+    PLANT,
+    STONE,
+    DIRT,
     OTHER
 }

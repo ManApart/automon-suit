@@ -1,8 +1,8 @@
-package parts
+package resources.parts
 
 import Part
 import PartType
-import components.BaseMaterials
+import resources.components.BaseMaterials
 import slotFrom
 
 object Skeletons {

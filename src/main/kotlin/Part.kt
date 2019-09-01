@@ -1,3 +1,5 @@
+import resources.locations.Locations.NO_LOCATION
+
 val NO_PART = Part(PartType.OTHER, Element.OTHER)
 
 //eventually add name once we have an actual interface
@@ -7,8 +9,7 @@ class Part(
     val element: Element = Element.OTHER,
     private val baseHealth: Int = 10,
     private val baseArmor: Int = 0,
-    private val baseSpeed: Int = 0,
-    private val baseEvasion: Int = 0,
+    private val baseSpeed: Affinities = Affinities(),
     private val baseWeight: Int = 1,
     //max supported weight?
     var currentHealth: Int = baseHealth,
@@ -16,7 +17,7 @@ class Part(
 ) {
 
     fun copy(): Part {
-        return Part(type, element, baseHealth, baseArmor, baseSpeed, baseEvasion, baseWeight, baseHealth, slots)
+        return Part(type, element, baseHealth, baseArmor, baseSpeed, baseWeight, baseHealth, slots)
     }
 
     fun getTotalHealth(): Int {
@@ -28,11 +29,7 @@ class Part(
     }
 
     fun getSpeed(location: Location = NO_LOCATION): Int {
-        return baseSpeed + slots.sumBy { it.component.getSpeedBonus(location) }
-    }
-
-    fun getEvasion(location: Location = NO_LOCATION): Int {
-        return baseEvasion + slots.sumBy { it.component.getEvasionBonus(location) }
+        return baseSpeed.getAffinity(location.element, location.terrainDescriptors) + slots.sumBy { it.component.getSpeedBonus(location) }
     }
 
     fun getWeight(): Int {

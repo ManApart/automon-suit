@@ -1,14 +1,7 @@
-val NO_LOCATION = Location()
+import org.hexworks.zircon.api.data.Tile
+import resources.locations.Tiles
 
-class Location(private val effectiveElements: List<Element> = listOf(), private val ineffectiveElements: List<Element> = listOf()) {
-
-//    fun getStrength(part: Part): StrengthLevel {
-//        return getStrength(part.element)
-//    }
-//
-//    fun getStrength(component: Component): StrengthLevel {
-//        return getStrength(component.element)
-//    }
+class Location(val tile: Tile = Tiles.grass, val element: Element = Element.OTHER, val terrainDescriptors: List<TerrainDescriptor> = listOf(), private val effectiveElements: List<Element> = listOf(), private val ineffectiveElements: List<Element> = listOf()) {
 
     fun getStrength(element: Element): StrengthLevel {
         return when {

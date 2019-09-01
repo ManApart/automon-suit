@@ -1,0 +1,1 @@
+class Affinity(val element: Element, val terrainDescriptor: TerrainDescriptor, val score: Int)

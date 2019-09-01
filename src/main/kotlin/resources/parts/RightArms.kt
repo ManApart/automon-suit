@@ -1,8 +1,8 @@
-package parts
+package resources.parts
 
 import Part
-import components.BaseMaterials
-import components.Wiring
+import resources.components.BaseMaterials
+import resources.components.Wiring
 import slotFrom
 
 object RightArms {

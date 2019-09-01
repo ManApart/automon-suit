@@ -1,6 +1,6 @@
 import org.junit.Assert.assertTrue
 import org.junit.Test
-import suits.Suits
+import resources.suits.Suits
 
 class BasicItems {
 

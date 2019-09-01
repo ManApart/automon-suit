@@ -9,6 +9,17 @@ class Suit {
 
     private val parts = listOf(skeleton, helmet, chest, leftArm, rightArm, legs)
 
+    fun copy(): Suit {
+        val copy = Suit()
+        copy.skeleton.part = skeleton.part.copy()
+        copy.helmet.part = helmet.part.copy()
+        copy.chest.part = chest.part.copy()
+        copy.rightArm.part = rightArm.part.copy()
+        copy.leftArm.part = leftArm.part.copy()
+        copy.legs.part = legs.part.copy()
+        return copy
+    }
+
     fun getTotalHealth(): Int {
         return parts.sumBy { it.part.getTotalHealth() }
     }
@@ -29,14 +40,7 @@ class Suit {
         return parts.sumBy { it.part.getWeight() }
     }
 
-    fun copy(): Suit {
-        val copy = Suit()
-        copy.skeleton.part = skeleton.part.copy()
-        copy.helmet.part = helmet.part.copy()
-        copy.chest.part = chest.part.copy()
-        copy.rightArm.part = rightArm.part.copy()
-        copy.leftArm.part = leftArm.part.copy()
-        copy.legs.part = legs.part.copy()
-        return copy
+    fun getSpeed(target: Location): Int {
+        return parts.sumBy { it.part.getSpeed(target) }
     }
 }

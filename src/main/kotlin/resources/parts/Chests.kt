@@ -1,8 +1,8 @@
-package parts
+package resources.parts
 
 import Part
-import components.BaseMaterials
-import components.Generators
+import resources.components.BaseMaterials
+import resources.components.Generators
 import slotFrom
 
 object Chests {
