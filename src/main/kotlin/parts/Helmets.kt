@@ -8,7 +8,7 @@ import slotFrom
 object Helmets {
     val basicHelmet = Part(
         PartType.HELMET,
-        listOf(
+        slots = listOf(
             slotFrom(BaseMaterials.steel),
             slotFrom(Wiring.basic)
         )

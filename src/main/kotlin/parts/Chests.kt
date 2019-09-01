@@ -7,7 +7,7 @@ import slotFrom
 
 object Chests {
     val basicChest = Part(
-        PartType.CHEST, listOf(
+        PartType.CHEST, slots = listOf(
             slotFrom(BaseMaterials.steel),
             slotFrom(Generators.smallPower)
         )

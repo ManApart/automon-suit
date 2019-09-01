@@ -6,7 +6,7 @@ import components.BaseMaterials
 import slotFrom
 
 object Skeletons {
-    val basicSkeleton = Part(PartType.SKELETON, listOf(slotFrom(BaseMaterials.steel)))
+    val basicSkeleton = Part(PartType.SKELETON, slots = listOf(slotFrom(BaseMaterials.steel)))
 
 
 }

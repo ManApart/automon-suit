@@ -1,36 +1,50 @@
-val NO_PART = Part(PartType.OTHER)
+val NO_PART = Part(PartType.OTHER, Element.OTHER)
 
 //eventually add name once we have an actual interface
+// add move
 class Part(
     val type: PartType,
-//    private val baseHealth: Int,
-//    private val baseArmor: Int,
-//    private val baseWeight: Int,
-//    var currentHealth: Int = baseHealth,
-    val slots: List<ComponentSlot> = listOf()) {
+    val element: Element = Element.OTHER,
+    private val baseHealth: Int = 10,
+    private val baseArmor: Int = 0,
+    private val baseSpeed: Int = 0,
+    private val baseEvasion: Int = 0,
+    private val baseWeight: Int = 1,
+    //max supported weight?
+    var currentHealth: Int = baseHealth,
+    val slots: List<ComponentSlot> = listOf()
+) {
 
-    fun copy() : Part {
-        return Part(type, slots)
+    fun copy(): Part {
+        return Part(type, element, baseHealth, baseArmor, baseSpeed, baseEvasion, baseWeight, baseHealth, slots)
     }
 
-    fun getHealthTotal() : Int {
-        return 0
+    fun getTotalHealth(): Int {
+        return baseHealth + slots.sumBy { it.component.healthBonus }
     }
 
-    fun getArmor() : Int {
-        return 0
+    fun getArmor(): Int {
+        return baseArmor + slots.sumBy { it.component.armorBonus }
     }
 
-    fun getWeight() : Int {
-        return 0
+    fun getSpeed(location: Location = NO_LOCATION): Int {
+        return baseSpeed + slots.sumBy { it.component.getSpeedBonus(location) }
     }
 
-    fun getPowerUsed() : Int {
-        return 0
+    fun getEvasion(location: Location = NO_LOCATION): Int {
+        return baseEvasion + slots.sumBy { it.component.getEvasionBonus(location) }
     }
 
-    fun getPowerCreated() : Int {
-        return 0
+    fun getWeight(): Int {
+        return baseWeight + slots.sumBy { it.component.weight }
+    }
+
+    fun getEnergyConsumed(): Int {
+        return slots.sumBy { it.component.energyConsumed }
+    }
+
+    fun getEnergyProduced(): Int {
+        return slots.sumBy { it.component.energyProduced }
     }
 
 }

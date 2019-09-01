@@ -5,9 +5,31 @@ class Suit {
     val leftArm = PartSlot(PartType.LEFT_ARM)
     val rightArm = PartSlot(PartType.RIGHT_ARM)
     val legs = PartSlot(PartType.LEGS)
-    var power: Int = 10
+    var energy = 10
 
-    fun copy() : Suit {
+    private val parts = listOf(skeleton, helmet, chest, leftArm, rightArm, legs)
+
+    fun getTotalHealth(): Int {
+        return parts.sumBy { it.part.getTotalHealth() }
+    }
+
+    fun getCurrentHealth(): Int {
+        return parts.sumBy { it.part.currentHealth }
+    }
+
+    fun getEnergyProduced(): Int {
+        return parts.sumBy { it.part.getEnergyProduced() }
+    }
+
+    fun getEnergyConsumed(): Int {
+        return parts.sumBy { it.part.getEnergyConsumed() }
+    }
+
+    fun getWeight(): Int {
+        return parts.sumBy { it.part.getWeight() }
+    }
+
+    fun copy(): Suit {
         val copy = Suit()
         copy.skeleton.part = skeleton.part.copy()
         copy.helmet.part = helmet.part.copy()
