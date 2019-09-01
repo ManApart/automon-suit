@@ -11,7 +11,7 @@ object Legs {
 
     private fun buildBasicLegs(): Part {
         val affinities = fromElementsAndTerrain(
-            listOf(Element.PLANT, Element.WATER, Element.STONE),
+            listOf(Element.PLANT, Element.WATER, Element.STONE, Element.DIRT),
             listOf(
                 TerrainDescriptor.SMOOTH,
                 TerrainDescriptor.ROUGH,
@@ -21,7 +21,7 @@ object Legs {
             1
         )
         affinities.addAffinity(
-            listOf(Element.PLANT, Element.STONE),
+            listOf(Element.PLANT, Element.STONE, Element.DIRT),
             listOf(TerrainDescriptor.SMOOTH, TerrainDescriptor.OPEN),
             2
         )

@@ -3,6 +3,8 @@ package resources.locations
 import org.hexworks.zircon.api.Tiles
 import resources.ui.Colors.BLUE
 import resources.ui.Colors.BRIGHT_GREEN
+import resources.ui.Colors.BROWN
+import resources.ui.Colors.CREAM
 import resources.ui.Colors.DARK_BLUE
 import resources.ui.Colors.DARK_GREEN
 import resources.ui.Colors.DARK_GREY
@@ -28,6 +30,16 @@ object Tiles {
         .withCharacter('o')
         .withBackgroundColor(DARK_GREEN)
         .withForegroundColor(DARK_GREY)
+
+    val dirt = Tiles.defaultTile()
+        .withCharacter(':')
+        .withBackgroundColor(BROWN)
+        .withForegroundColor(CREAM)
+
+    val compactDirt = Tiles.defaultTile()
+        .withCharacter(' ')
+        .withBackgroundColor(BROWN)
+        .withForegroundColor(CREAM)
 
     val river = Tiles.defaultTile()
         .withCharacter('~')

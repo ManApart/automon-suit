@@ -17,6 +17,8 @@ object Start {
                 when {
                     isRiver(locations, column, x, y) -> column.add(listOf(Locations.river, Locations.deepRiver).random())
                     Math.random() < 0.01 -> column.add(Locations.boulder)
+                    Math.random() < 0.01 -> column.add(Locations.dirt)
+                    Math.random() < 0.01 -> column.add(Locations.compactDirt)
                     else -> column.add(Locations.grasses.random())
                 }
             }

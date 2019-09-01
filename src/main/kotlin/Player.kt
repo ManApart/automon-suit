@@ -15,7 +15,9 @@ class Player(val suit: Suit = Suits.basicSuit()) {
             val speed = suit.getSpeed(target)
             if (speed >= 1) {
                 tile.moveTo(pos(tile.x + x, tile.y + y))
-//            println("moving to ${tile.position}")
+                println("moving to ${tile.position} with speed $speed")
+            } else {
+                println("Can't move to $target")
             }
         }
     }

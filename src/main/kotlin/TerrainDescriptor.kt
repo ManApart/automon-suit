@@ -3,5 +3,7 @@ enum class TerrainDescriptor {
     ROUGH,
     ENTANGLED,
     OPEN,
-    IMMERSED
+    IMMERSED,
+    SOFT,
+    HARD
 }
